@@ -1,494 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scaleify - Scaling Dreams into Reality</title>
-    <style>
-        :root {
-            --primary-color: #000000;
-            --secondary-color: #ffffff;
-            --accent-color: #f0f0f0;
-            --transition-speed: 0.3s;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-        }
-        
-        body {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        header {
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-            background-color: rgba(0, 0, 0, 0.9);
-        }
-        
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo img {
-            height: 40px;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 30px;
-        }
-        
-        .nav-links a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all var(--transition-speed);
-        }
-        
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-        
-        .hamburger {
-            display: none;
-            cursor: pointer;
-        }
-        
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            background-color: var(--primary-color);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-content {
-            z-index: 1;
-            max-width: 800px;
-        }
-        
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-        
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 4px;
-            transition: all var(--transition-speed);
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Services Section */
-        .services {
-            padding: 100px 0;
-            background-color: var(--primary-color);
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .service-card {
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 8px;
-            transition: all var(--transition-speed);
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-        
-        /* About Section */
-        .about {
-            padding: 100px 0;
-            background-color: rgba(255, 255, 255, 0.02);
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-image {
-            flex: 1;
-        }
-        
-        .about-image img {
-            width: 100%;
-            border-radius: 8px;
-        }
-        
-        /* Testimonials Section */
-        .testimonials {
-            padding: 100px 0;
-            background-color: var(--primary-color);
-        }
-        
-        .testimonial-slider {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .testimonial-card {
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-        
-        .testimonial-author {
-            font-weight: 600;
-        }
-        
-        /* Contact Section */
-        .contact {
-            padding: 100px 0;
-            background-color: rgba(255, 255, 255, 0.02);
-        }
-        
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 12px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            color: var(--secondary-color);
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: var(--secondary-color);
-        }
-        
-        /* Footer */
-        footer {
-            padding: 50px 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            text-align: center;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            margin-bottom: 20px;
-        }
-        
-        .footer-links li {
-            margin: 0 15px;
-        }
-        
-        .footer-links a {
-            color: var(--secondary-color);
-            text-decoration: none;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            margin-bottom: 20px;
-        }
-        
-        .social-links li {
-            margin: 0 10px;
-        }
-        
-        .social-icon {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-            line-height: 40px;
-            transition: all var(--transition-speed);
-        }
-        
-        .social-icon:hover {
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-        }
-        
-        .arrow-icon {
-            display: inline-block;
-            margin-right: 10px;
-            font-size: 1.2em;
-            transform: rotate(45deg);
-        }
-        
-        /* Media Queries */
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                margin-top: 20px;
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .nav-links li {
-                margin: 10px 0;
-            }
-            
-            .hamburger {
-                display: block;
-                position: absolute;
-                right: 20px;
-                top: 20px;
-            }
-            
-            .hero h1 {
-                font-size: 3rem;
-            }
-            
-            .about-content {
-                flex-direction: column;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Scaleify - Scaling Dreams into Reality</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: #111;
+      color: #e0e0e0;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+    .top-nav {
+      position: absolute;
+      top: 32px;
+      right: 40px;
+      z-index: 10;
+    }
+    .top-nav a {
+      color: #e0e0e0;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .top-nav a:hover, .top-nav a.active {
+      color: #fff;
+      border-bottom: 2px solid #fff;
+      padding-bottom: 2px;
+    }
+    .landing {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .logo {
+      width: 320px;
+      max-width: 90vw;
+      margin-bottom: 32px;
+    }
+    .slogan {
+      font-size: 1.6rem;
+      color: #bdbdbd;
+      margin-bottom: 40px;
+      letter-spacing: 1px;
+    }
+    .explore-btn {
+      background: #fff;
+      color: #111;
+      border: none;
+      padding: 18px 42px;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.13);
+      transition: background 0.2s, color 0.2s;
+    }
+    .explore-btn:hover {
+      background: #e0e0e0;
+      color: #222;
+    }
+    main {
+      max-width: 720px;
+      margin: 80px auto 0 auto;
+      padding: 32px 16px 48px 16px;
+      background: #181818;
+      border-radius: 12px;
+      min-height: 400px;
+      display: none;
+    }
+    h2 {
+      color: #fff;
+      font-weight: 600;
+    }
+    .services-list {
+      margin: 32px 0;
+    }
+    .service-item {
+      margin-bottom: 28px;
+    }
+    .service-title {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #e0e0e0;
+      margin-bottom: 6px;
+    }
+    .service-desc {
+      color: #bdbdbd;
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+    .cta {
+      background: #fff;
+      color: #111;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 16px 8px 0 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: background 0.2s, color 0.2s;
+    }
+    .cta:hover {
+      background: #e0e0e0;
+      color: #222;
+    }
+    form label {
+      display: block;
+      margin: 18px 0 6px 0;
+      color: #e0e0e0;
+      font-weight: 500;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      margin-bottom: 12px;
+      background: #222;
+      color: #fff;
+      font-size: 1rem;
+    }
+    form textarea {
+      min-height: 80px;
+    }
+    form button {
+      margin-top: 8px;
+    }
+    @media (max-width: 600px) {
+      .logo { width: 180px; }
+      main { padding: 16px 4vw; }
+      .top-nav { right: 12px; top: 16px; }
+    }
+  </style>
+  <script>
+    function showSection(section) {
+      document.querySelector('.landing').style.display = 'none';
+      document.querySelector('main').style.display = 'block';
+      document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+      document.getElementById(section).style.display = 'block';
+      document.querySelectorAll('.top-nav a').forEach(a => a.classList.remove('active'));
+      document.getElementById('nav-' + section).classList.add('active');
+      window.scrollTo(0, 0);
+    }
+    function showLanding() {
+      document.querySelector('.landing').style.display = 'flex';
+      document.querySelector('main').style.display = 'none';
+      document.querySelectorAll('.top-nav a').forEach(a => a.classList.remove('active'));
+    }
+    window.onload = function() {
+      showLanding();
+    };
+  </script>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo">
-                    <span class="arrow-icon">↗</span>
-                    <span style="font-size: 24px; font-weight: 700;">Scaleify</span>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span>&#9776;</span>
-                </div>
-            </nav>
+  <div class="top-nav">
+    <a href="#" id="nav-services" onclick="showSection('services');return false;">Services</a>
+    <a href="#" id="nav-contact" onclick="showSection('contact');return false;">Contact Us</a>
+    <a href="#" onclick="showLanding();return false;">Home</a>
+  </div>
+  <div class="landing">
+    <img src="ChatGPT-Image-May-4-2025-11_27_41-PM.jpg" alt="Scaleify Logo" class="logo">
+    <div class="slogan">Scaleify: Scaling Dreams into Reality</div>
+    <button class="explore-btn" onclick="showSection('services')">Explore More</button>
+  </div>
+  <main>
+    <!-- Services Page -->
+    <div id="services" class="page" style="display:none;">
+      <h2>Our Services</h2>
+      <div class="services-list">
+        <div class="service-item">
+          <div class="service-title">Market Research & Analysis</div>
+          <div class="service-desc">In-depth market research to identify opportunities, competitors, and trends tailored to your business goals.</div>
         </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1><span class="arrow-icon">↗</span>Scaleify</h1>
-                <p>Scaling Dreams into Reality!</p>
-                <p>We help ambitious businesses scale to new heights through strategic development and execution.</p>
-                <a href="#contact" class="btn">Get Started</a>
-            </div>
+        <div class="service-item">
+          <div class="service-title">Business Strategy Consulting</div>
+          <div class="service-desc">Strategic planning and actionable roadmaps to accelerate your business growth and maximize ROI.</div>
         </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Services</h2>
-                <p>Comprehensive business development solutions tailored to your needs</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Strategic Planning</h3>
-                    <p>Develop robust business strategies that align with your vision and market opportunities.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Market Expansion</h3>
-                    <p>Enter new markets with confidence through our data-driven market entry strategies.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Revenue Growth</h3>
-                    <p>Optimize your sales processes and unlock new revenue streams for sustainable growth.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Partnership Development</h3>
-                    <p>Identify and establish strategic partnerships that accelerate your business growth.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Business Model Innovation</h3>
-                    <p>Reinvent your business model to adapt to changing market conditions and customer demands.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Investment Readiness</h3>
-                    <p>Prepare your business for investment opportunities with compelling value propositions.</p>
-                </div>
-            </div>
+        <div class="service-item">
+          <div class="service-title">Sales Enablement</div>
+          <div class="service-desc">Optimize your sales processes, train your team, and implement tools to boost conversion rates and revenue.</div>
         </div>
-    </section>
-
-
-
-
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Get In Touch</h2>
-                <p>Ready to scale your business? Let's talk about your growth goals.</p>
-            </div>
-            <div class="contact-form">
-                <form action="mailto:lalitmohanamuse@gmail.com" method="POST" enctype="text/plain">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="company">Company</label>
-                        <input type="text" id="company" name="company" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
-            </div>
+        <div class="service-item">
+          <div class="service-title">Partnership & Networking</div>
+          <div class="service-desc">Connect with key industry players and form partnerships that fuel expansion and innovation.</div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="logo">
-                <span class="arrow-icon">↗</span>
-                <span style="font-size: 20px; font-weight: 700;">Scaleify</span>
-            </div>
-            <ul class="footer-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <ul class="social-links">
-                <li><a href="#" class="social-icon">Li</a></li>
-                <li><a href="#" class="social-icon">Tw</a></li>
-                <li><a href="#" class="social-icon">Fb</a></li>
-                <li><a href="#" class="social-icon">In</a></li>
-            </ul>
-            <p>&copy; 2025 Scaleify. All rights reserved.</p>
-            <p>Scaling Dreams into Reality!</p>
+        <div class="service-item">
+          <div class="service-title">Digital Transformation</div>
+          <div class="service-desc">Modernize your business with the latest digital tools and strategies for greater efficiency and scalability.</div>
         </div>
-    </footer>
-
-    <script>
-        // Mobile menu toggle
-        document.querySelector('.hamburger').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
+      </div>
+      <button class="cta" onclick="showSection('contact')">Contact Us for a Free Consultation</button>
+    </div>
+    <!-- Contact Page -->
+    <div id="contact" class="page" style="display:none;">
+      <h2>Contact Us</h2>
+      <p>
+        Ready to scale your business? Fill out the form below and our team will get in touch with you soon.
+      </p>
+      <form>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
         
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu when clicking a link
-                document.querySelector('.nav-links').classList.remove('active');
-            });
-        });
-    </script>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="message">How can we help you?</label>
+        <textarea id="message" name="message" required></textarea>
+        
+        <button type="submit" class="cta">Send Message</button>
+      </form>
+    </div>
+  </main>
 </body>
 </html>
